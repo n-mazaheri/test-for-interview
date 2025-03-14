@@ -1,10 +1,19 @@
 "use client";
 import axios from "axios";
 import { useState } from "react";
+
+
+export const config = {
+  api: {
+    // disables call to body parsing module
+    bodyParser: false,
+  }
+};
 export default function Test() {
   const [data, setData] = useState({name:"", email:""});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string|null>(null);
+
   async function sendData() {
     setLoading(true);
     setError(null);
