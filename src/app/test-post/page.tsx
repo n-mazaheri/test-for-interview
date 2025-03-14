@@ -9,7 +9,7 @@ export default function Test() {
     setLoading(true);
     setError(null);
     try {
-      let temp = await axios.post("http://localhost:5000/api/users", data);
+      let temp = await axios.post("http://interview-test-backend-production.up.railway.app/api/users", data);
       console.log(temp.data);
       setLoading(false);
     } catch (e) {
