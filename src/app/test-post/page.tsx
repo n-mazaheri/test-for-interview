@@ -2,18 +2,18 @@
 import axios from "axios";
 import { useState } from "react";
 export default function Test() {
-  const [data, setData] = useState<any>({name:"", email:""});
+  const [data, setData] = useState({name:"", email:""});
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<string|null>(null);
   async function sendData() {
     setLoading(true);
     setError(null);
     try {
-      let temp = await axios.post("http://interview-test-backend-production.up.railway.app/api/users", data);
+      const temp = await axios.post("http://interview-test-backend-production.up.railway.app/api/users", data);
       console.log(temp.data);
       setLoading(false);
     } catch (e) {
-      setError(e);
+      setError("error");
       console.log(e);
       setLoading(false);
     }
